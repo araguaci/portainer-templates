@@ -2,7 +2,6 @@
 volumes:
   zerotier:
   postgres-data:
-  caddy_data:
 
 networks:
   app-network:
@@ -15,7 +14,6 @@ networks:
 services:
   postgres:
     image: postgres:15.2-alpine
-    container_name: postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
@@ -25,11 +23,15 @@ services:
       - postgres-data:/var/lib/postgresql/data
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ztnet"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   zerotier:
-    image: zyclonite/zerotier:1.14.0
+    image: zyclonite/zerotier:1.14.2
     hostname: zerotier
-    container_name: zerotier
     restart: unless-stopped
     volumes:
       - zerotier:/var/lib/zerotier-one
@@ -48,43 +50,28 @@ services:
 
   ztnet:
     image: sinamics/ztnet:latest
-    container_name: ztnet
     working_dir: /app
     volumes:
       - zerotier:/var/lib/zerotier-one
     restart: unless-stopped
     ports:
-      - 127.0.0.1:3000:3000
+      - "3000:3000"
     environment:
       POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: ztnet
-      NEXTAUTH_URL: "http://your-url-or-ip:3000"
-      NEXTAUTH_SECRET: "random_secret"
-      NEXTAUTH_URL_INTERNAL: "http://ztnet:3000" # Internal NextAuth URL for 'ztnet' container on port 3000. Do not change unless modifying container name.
+      # Public URL you reach the web UI on. Set to http://<your-host-ip>:3000
+      NEXTAUTH_URL: ${NEXTAUTH_URL:-http://localhost:3000}
+      # Strong random string — used to sign session tokens
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET:-changeme-generate-a-long-random-secret}
+      # Internal URL for the 'ztnet' service. Do not change unless renaming the service.
+      NEXTAUTH_URL_INTERNAL: "http://ztnet:3000"
     networks:
       - app-network
-    links:
-      - postgres
     depends_on:
-      - postgres
-      - zerotier
-
-  https-proxy:
-    image: caddy:latest
-    container_name: ztnet-https-proxy
-    restart: unless-stopped
-    depends_on:
-      - ztnet
-    command: caddy reverse-proxy --from <YOUR-PUBLIC-HOST-NAME> --to ztnet:3000
-    volumes:
-      - caddy_data:/data
-    networks:
-      - app-network
-    links:
-      - ztnet
-    ports:
-      - "80:80"
-      - "443:443"
+      postgres:
+        condition: service_healthy
+      zerotier:
+        condition: service_started

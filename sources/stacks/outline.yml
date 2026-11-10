@@ -1,88 +1,66 @@
-version: "3"
 services:
-
   outline:
     image: docker.getoutline.com/outlinewiki/outline:latest
-    env_file: ./docker.env
+    restart: unless-stopped
     ports:
       - "3000:3000"
+    environment:
+      NODE_ENV: production
+      # REQUIRED — generate each with: openssl rand -hex 32
+      SECRET_KEY: ${SECRET_KEY}
+      UTILS_SECRET: ${UTILS_SECRET}
+      # Public URL Outline is served from
+      URL: ${URL:-http://localhost:3000}
+      PORT: "3000"
+      DATABASE_URL: postgres://outline:outline@postgres:5432/outline
+      PGSSLMODE: disable
+      REDIS_URL: redis://redis:6379
+      # Store uploads on a local volume instead of S3/MinIO
+      FILE_STORAGE: local
+      FILE_STORAGE_LOCAL_ROOT_DIR: /var/lib/outline/data
+      FILE_STORAGE_UPLOAD_MAX_SIZE: "262144000"
+      # Optional SMTP — enables email (magic-link) sign-in
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_FROM_EMAIL: ${SMTP_FROM_EMAIL:-}
+      SMTP_SECURE: ${SMTP_SECURE:-true}
+    volumes:
+      - outline-data:/var/lib/outline/data
     depends_on:
-      - postgres
-      - redis
-      - storage
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: outline
+      POSTGRES_PASSWORD: outline
+      POSTGRES_DB: outline
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U outline -d outline"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
 
   redis:
-    image: redis
-    env_file: ./docker.env
-    ports:
-      - "6379:6379"
+    image: redis:7-alpine
+    restart: unless-stopped
     volumes:
-      - ./redis.conf:/redis.conf
-    command: ["redis-server", "/redis.conf"]
+      - redis-data:/data
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
-      timeout: 30s
-      retries: 3
-
-  postgres:
-    image: postgres
-    env_file: ./docker.env
-    ports:
-      - "5432:5432"
-    volumes:
-      - database-data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD", "pg_isready"]
-      interval: 30s
-      timeout: 20s
-      retries: 3
-    environment:
-      POSTGRES_USER: 'user'
-      POSTGRES_PASSWORD: 'pass'
-      POSTGRES_DB: 'outline'
-
-  storage:
-    image: minio/minio
-    env_file: ./docker.env
-    ports:
-      - "9000:9000"
-    entrypoint: sh
-    command: -c 'minio server'
-    deploy:
-      restart_policy:
-        condition: on-failure
-    volumes:
-      - storage-data:/data
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
-      interval: 30s
-      timeout: 20s
-      retries: 3
-
-  https-portal:
-    image: steveltn/https-portal
-    env_file: ./docker.env
-    ports:
-      - '80:80'
-      - '443:443'
-    links:
-      - outline
-      - storage
-    restart: always
-    volumes:
-      - https-portal-data:/var/lib/https-portal
-    healthcheck:
-      test: ["CMD", "service", "nginx", "status"]
-      interval: 30s
-      timeout: 20s
-      retries: 3
-    environment:
-      DOMAINS: 'docs.mycompany.com -> http://outline:3000'
-      STAGE: 'production'
-      WEBSOCKET: 'true'
+      timeout: 5s
+      retries: 6
 
 volumes:
-  https-portal-data:
-  storage-data:
-  database-data:
+  outline-data:
+  postgres-data:
+  redis-data:

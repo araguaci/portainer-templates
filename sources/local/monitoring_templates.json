@@ -1,0 +1,153 @@
+{
+  "templates": [
+    {
+      "categories": [
+        "Dashboard",
+        "Monitoring"
+      ],
+      "description": "A self-hosted dashboard that puts all your feeds in one place. Source: https://github.com/glanceapp/glance",
+      "env": [],
+      "image": "glanceapp/glance:latest",
+      "logo": "https://avatars.githubusercontent.com/u/159397742",
+      "name": "glance",
+      "note": "Glance needs a glance.yml config file in the mounted /app/config directory to start. Add one (see the project's example configuration) and restart.",
+      "platform": "linux",
+      "ports": [
+        "8080:8080/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Glance",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/app/config"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Monitoring",
+        "Networking"
+      ],
+      "description": "Automated developer-oriented status page with highly configurable health checks. Source: https://github.com/TwiN/gatus",
+      "env": [],
+      "image": "twinproduction/gatus:stable",
+      "logo": "https://avatars.githubusercontent.com/u/15699766",
+      "name": "gatus",
+      "note": "Mount a config.yaml into /config to define your health checks; Gatus starts with defaults if none is present.",
+      "platform": "linux",
+      "ports": [
+        "8080:8080/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Gatus",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Monitoring",
+        "Homelab"
+      ],
+      "description": "Self-hosted homelab dashboard, one container. Per-container GPU/VRAM attribution (which process holds the card, not just total load), Docker health/logs, systemd status, host vitals (CPU/RAM/disk/temps), multiple hosts over SSH. Alerts via Discord/ntfy/Telegram. Read-only MCP server on :9810. MIT. Source: https://github.com/SikamikanikoBG/homelab-monitor",
+      "env": [
+        {
+          "default": "10",
+          "description": "Seconds between samples",
+          "label": "SAMPLE_INTERVAL",
+          "name": "SAMPLE_INTERVAL"
+        },
+        {
+          "default": "180",
+          "description": "How long history is kept (days)",
+          "label": "RETENTION_DAYS",
+          "name": "RETENTION_DAYS"
+        }
+      ],
+      "image": "sikamikaniko123/homelab-monitor:latest",
+      "logo": "https://raw.githubusercontent.com/SikamikanikoBG/homelab-monitor/main/docs/logo-400.png",
+      "name": "homelab-monitor",
+      "network": "host",
+      "platform": "linux",
+      "ports": [],
+      "restart_policy": "unless-stopped",
+      "title": "HomeLab Monitor",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/var/run/docker.sock",
+          "container": "/var/run/docker.sock",
+          "readonly": true
+        },
+        {
+          "container": "/data"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Dashboard",
+        "Web"
+      ],
+      "description": "The directory page for the people you host services for: no account, multilingual, live status, one tiny container. Source: https://github.com/MorganKryze/cairn",
+      "env": [],
+      "image": "ghcr.io/morgankryze/cairn:latest",
+      "logo": "https://raw.githubusercontent.com/MorganKryze/cairn/main/docs/assets/brand/cairn.svg",
+      "name": "cairn",
+      "note": "Starts with no configuration at all and serves a getting-started page. Drop a services.yaml into the mounted /config directory and it reloads within seconds, no restart needed. It writes nothing at runtime, so it also runs read-only with every capability dropped.",
+      "platform": "linux",
+      "ports": [
+        "8080:8080/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "cairn",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Monitoring"
+      ],
+      "description": "Uptime and synthetic monitoring with status pages, incidents and alerts. Checks HTTP, DNS, TCP, ICMP, TLS expiry, databases, message brokers, heartbeats and headless browser scenarios. Source: https://github.com/fclairamb/solidping",
+      "env": [
+        {
+          "name": "SP_NODE_NAME",
+          "label": "Node name",
+          "default": "solidping",
+          "description": "Worker name, lowercase letters, digits and dashes, starting with a letter (3 to 21 characters). The server refuses to start without a valid one."
+        },
+        {
+          "name": "SP_BASE_URL",
+          "label": "Public URL",
+          "default": "http://localhost:4000",
+          "description": "URL people use to reach SolidPing. Used in links and notifications."
+        }
+      ],
+      "image": "ghcr.io/fclairamb/solidping:latest",
+      "logo": "https://raw.githubusercontent.com/fclairamb/solidping/main/res/logo_256.png",
+      "name": "solidping",
+      "note": "Open <code>http://&lt;your-host&gt;:4000</code>. First login: <code>admin@solidping.io</code> / <code>solidpass</code>, organization <code>default</code>. You are asked to set a new password right away. The SQLite database and uploads live in the <code>/data</code> volume. No secret is needed to start. Configuration: <a href=\"https://docs.solidping.io/configuration/\">docs.solidping.io</a>",
+      "platform": "linux",
+      "ports": [
+        "4000:4000/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "SolidPing",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ]
+    }
+  ],
+  "version": "3"
+}

@@ -1,0 +1,408 @@
+{
+  "templates": [
+    {
+      "categories": [
+        "Productivity",
+        "Social"
+      ],
+      "description": "Open source collaborative knowledge base for modern teams. Source: https://github.com/outline/outline",
+      "env": [
+        {
+          "label": "Secret key \u2014 generate with: openssl rand -hex 32",
+          "name": "SECRET_KEY"
+        },
+        {
+          "label": "Utils secret \u2014 generate with: openssl rand -hex 32",
+          "name": "UTILS_SECRET"
+        },
+        {
+          "default": "http://localhost:3000",
+          "label": "Public URL Outline is served from",
+          "name": "URL"
+        },
+        {
+          "default": "",
+          "label": "SMTP host (enables email sign-in)",
+          "name": "SMTP_HOST"
+        },
+        {
+          "default": "",
+          "label": "SMTP port",
+          "name": "SMTP_PORT"
+        },
+        {
+          "default": "",
+          "label": "SMTP username",
+          "name": "SMTP_USERNAME"
+        },
+        {
+          "default": "",
+          "label": "SMTP password",
+          "name": "SMTP_PASSWORD"
+        },
+        {
+          "default": "",
+          "label": "SMTP from address",
+          "name": "SMTP_FROM_EMAIL"
+        }
+      ],
+      "logo": "https://avatars.githubusercontent.com/u/1765001",
+      "name": "outline",
+      "note": "Outline needs an authentication provider to sign in: either fill in the SMTP fields above for email (magic-link) sign-in, or add an OIDC/Google/Slack provider by editing the stack. Generate SECRET_KEY and UTILS_SECRET with 'openssl rand -hex 32'. Uploads are stored on a local volume (no S3/MinIO required).",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/outline.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "restart_policy": "unless-stopped",
+      "title": "Outline",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Productivity",
+        "Cloud"
+      ],
+      "description": "Collaboration suite, encrypted and open-source. Source: https://github.com/cryptpad/cryptpad",
+      "env": [
+        {
+          "default": "https://cryptpad.example.com",
+          "label": "Main domain (full URL) \u2014 your public CryptPad address",
+          "name": "CPAD_MAIN_DOMAIN"
+        },
+        {
+          "default": "https://cryptpad-ui.example.com",
+          "label": "Sandbox domain (full URL) \u2014 MUST be a DIFFERENT origin from the main domain",
+          "name": "CPAD_SANDBOX_DOMAIN"
+        }
+      ],
+      "logo": "https://avatars.githubusercontent.com/u/20967956",
+      "name": "cryptpad",
+      "note": "CryptPad requires two DIFFERENT domains/origins (main + sandbox) fronted by a reverse proxy that forwards to port 3000 \u2014 mandatory for its XSS sandboxing. Set both to real, distinct domains before deploying.",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/cryptpad.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "title": "CryptPad",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Bookmarks",
+        "Productivity"
+      ],
+      "description": "Self-hosted bookmark manager that is minimal and fast. Source: https://github.com/sissbruecker/linkding",
+      "env": [
+        {
+          "default": "admin",
+          "label": "Admin username",
+          "name": "LD_SUPERUSER_NAME"
+        },
+        {
+          "default": "changeme",
+          "label": "Admin password",
+          "name": "LD_SUPERUSER_PASSWORD"
+        },
+        {
+          "default": "",
+          "label": "Admin email (optional)",
+          "name": "LD_SUPERUSER_EMAIL"
+        }
+      ],
+      "image": "sissbruecker/linkding:latest",
+      "logo": "https://avatars.githubusercontent.com/u/357820",
+      "name": "linkding",
+      "platform": "linux",
+      "ports": [
+        "9090:9090/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Linkding",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/etc/linkding/data"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Inventory",
+        "Productivity"
+      ],
+      "description": "Inventory and organization system built for the home user. Source: https://github.com/sysadminsmedia/homebox",
+      "env": [
+        {
+          "default": "UTC",
+          "label": "Timezone",
+          "name": "TZ"
+        }
+      ],
+      "image": "ghcr.io/sysadminsmedia/homebox:latest",
+      "logo": "https://avatars.githubusercontent.com/u/151488376",
+      "name": "homebox",
+      "platform": "linux",
+      "ports": [
+        "7745:7745/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Homebox",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Documents",
+        "Productivity"
+      ],
+      "description": "Open source DocuSign alternative for document filling and signing. Source: https://github.com/docusealco/docuseal",
+      "env": [
+        {
+          "default": "",
+          "label": "Public domain (e.g. sign.example.com) \u2014 used for links and emails",
+          "name": "HOST"
+        }
+      ],
+      "image": "docuseal/docuseal:latest",
+      "logo": "https://avatars.githubusercontent.com/u/138379721",
+      "name": "docuseal",
+      "note": "First boot runs migrations and auto-generates SECRET_KEY_BASE (persisted to /data); the UI can take up to a minute to become reachable. Set HOST when serving behind a domain/reverse proxy.",
+      "platform": "linux",
+      "ports": [
+        "3000:3000/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "DocuSeal",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Productivity",
+        "Project Management"
+      ],
+      "description": "Open source Trello-like kanban board for project management built with React and Node.js. Source: https://github.com/plankanban/planka",
+      "env": [
+        {
+          "default": "http://localhost:3000",
+          "label": "Public URL you access Planka at (must EXACTLY match the browser address)",
+          "name": "BASE_URL"
+        },
+        {
+          "default": "",
+          "label": "Session secret \u2014 generate with: openssl rand -hex 64",
+          "name": "SECRET_KEY"
+        },
+        {
+          "default": "demo@demo.demo",
+          "label": "First admin email",
+          "name": "DEFAULT_ADMIN_EMAIL"
+        },
+        {
+          "default": "changeme",
+          "label": "First admin password",
+          "name": "DEFAULT_ADMIN_PASSWORD"
+        },
+        {
+          "default": "Admin User",
+          "label": "First admin display name",
+          "name": "DEFAULT_ADMIN_NAME"
+        },
+        {
+          "default": "admin",
+          "label": "First admin username",
+          "name": "DEFAULT_ADMIN_USERNAME"
+        }
+      ],
+      "logo": "https://avatars.githubusercontent.com/u/64215741",
+      "name": "planka",
+      "note": "BASE_URL must EXACTLY match the URL you open Planka at (localhost, IP, or domain) or login fails. Generate SECRET_KEY with 'openssl rand -hex 64'. The DEFAULT_ADMIN_* fields seed the first admin on first boot \u2014 log in with them, then change the password.",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/planka.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "title": "Planka",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Documentation",
+        "Productivity"
+      ],
+      "description": "Open source collaborative wiki and documentation software, an alternative to Confluence and Notion. Source: https://github.com/docmost/docmost",
+      "env": [
+        {
+          "default": "http://localhost:3000",
+          "label": "Public URL Docmost is served from",
+          "name": "APP_URL"
+        },
+        {
+          "default": "",
+          "label": "App secret (>=32 chars) \u2014 generate with: openssl rand -hex 32",
+          "name": "APP_SECRET"
+        }
+      ],
+      "logo": "https://avatars.githubusercontent.com/u/172325533",
+      "name": "docmost",
+      "note": "Generate APP_SECRET with 'openssl rand -hex 32' (must be at least 32 chars). Set APP_URL to the address you access Docmost from.",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/docmost.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "title": "Docmost",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Web",
+        "Tools"
+      ],
+      "description": "Static, config-driven link-in-bio page. Profile card, tappable links, vCard download, QR share \u2014 all driven from a single YAML file baked at build time. Source: https://github.com/kartikeychoudhary/Reach-me-out",
+      "env": [],
+      "image": "kartikey31choudhary/reach-me-out:latest",
+      "logo": "https://raw.githubusercontent.com/kartikeychoudhary/Reach-me-out/main/public/logo.svg",
+      "name": "reach-me-out",
+      "note": "Mount your own config.yaml to /usr/share/nginx/html/config.yaml (read-only) to customize name, links and theme. See https://github.com/kartikeychoudhary/Reach-me-out for the YAML schema and examples.",
+      "platform": "linux",
+      "ports": [
+        "8080:80/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Reach Me Out",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/path/to/config.yaml",
+          "container": "/usr/share/nginx/html/config.yaml",
+          "readonly": true
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Tools",
+        "Networking"
+      ],
+      "description": "Open-source fuel and EV route planner with live prices from 22 countries. Source: https://github.com/GeiserX/Pumperly",
+      "env": [
+        {
+          "default": "ES",
+          "label": "Default country (ISO 3166-1 alpha-2) for the initial map view",
+          "name": "PUMPERLY_DEFAULT_COUNTRY"
+        }
+      ],
+      "logo": "https://avatars.githubusercontent.com/u/9169332",
+      "name": "pumperly",
+      "note": "Fuel prices for the default country work out of the box. Route planning and address autocomplete are DISABLED unless you add external VALHALLA_URL (routing) and PHOTON_URL (geocoding) services by editing the stack; EV charging data needs an OpenChargeMap key (PUMPERLY_OCM_API_KEY).",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/pumperly.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "title": "Pumperly",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Productivity",
+        "Project Management"
+      ],
+      "description": "Client portal for agencies and freelancers. Share project progress, files, tasks and invoices through a branded portal. Source: https://github.com/Vibra-Labs/Atrium",
+      "env": [
+        {
+          "label": "Auth secret, min 32 chars \u2014 generate with: openssl rand -base64 32",
+          "name": "BETTER_AUTH_SECRET"
+        },
+        {
+          "default": "http://localhost:8080",
+          "label": "Public URL the portal is served from \u2014 email invite and reset links are built from this",
+          "name": "WEB_URL"
+        },
+        {
+          "default": "http://localhost:8080",
+          "label": "Public API URL \u2014 same value, the image serves app and API from one origin",
+          "name": "API_URL"
+        },
+        {
+          "default": "true",
+          "label": "Secure cookies \u2014 set to false when serving over plain HTTP",
+          "name": "SECURE_COOKIES"
+        },
+        {
+          "default": "",
+          "label": "External PostgreSQL URL (optional, blank uses the built-in database)",
+          "name": "DATABASE_URL"
+        },
+        {
+          "default": "local",
+          "label": "Storage provider: local, s3, minio or r2",
+          "name": "STORAGE_PROVIDER"
+        },
+        {
+          "default": "50",
+          "label": "Max upload size in MB",
+          "name": "MAX_FILE_SIZE_MB"
+        },
+        {
+          "default": "",
+          "label": "Resend API key (optional, enables invite and reset emails)",
+          "name": "RESEND_API_KEY"
+        },
+        {
+          "default": "",
+          "label": "From address for outgoing email (optional)",
+          "name": "EMAIL_FROM"
+        }
+      ],
+      "image": "vibralabs/atrium:latest",
+      "logo": "https://avatars.githubusercontent.com/u/258646867",
+      "name": "atrium",
+      "note": "Needs an auth secret of at least 32 characters \u2014 the container exits on startup without one. Over plain HTTP set secure cookies to false, or sign-in fails with a CSRF error.",
+      "platform": "linux",
+      "ports": [
+        "8080:8080/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Atrium",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/var/lib/postgresql/data"
+        },
+        {
+          "container": "/app/uploads"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Productivity",
+        "Documents"
+      ],
+      "description": "Collaborative LaTeX editor you host yourself, an alternative to Overleaf. Real-time editing, a git repository per project, and a sandboxed TeX Live compiler. Source: https://github.com/trahloff/Aldine",
+      "logo": "https://raw.githubusercontent.com/trahloff/Aldine/main/brand/icon.svg",
+      "name": "aldine",
+      "note": "Open <code>http://&lt;your-host&gt;:8080</code>. The stack has two containers: the app, and a compiler that runs TeX Live on an internal network with no internet access, all Linux capabilities dropped and bounded memory and processes. The compiler image is about 2.4 GB to download, so the first deploy takes a while. There is no login by default, so anyone who can reach the port can open every project; to require accounts, edit the stack and add <code>AUTH_ENABLED: \"1\"</code> under the app service's <code>environment</code>. Docs: <a href=\"https://github.com/trahloff/Aldine/blob/main/deploy/README.md\" target=\"_blank\">deploy/README.md</a>",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "docker-compose.yml",
+        "url": "https://github.com/trahloff/Aldine"
+      },
+      "restart_policy": "unless-stopped",
+      "title": "Aldine",
+      "type": 3
+    }
+  ],
+  "version": "3"
+}

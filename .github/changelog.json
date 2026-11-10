@@ -1,0 +1,2619 @@
+{
+  "entries": [
+    {
+      "version": "v1.4.11",
+      "previous": "v1.4.10",
+      "date": "2026-11-10",
+      "templateCount": 885,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "ManaWG",
+          "fields": [
+            "env"
+          ]
+        },
+        {
+          "title": "Stars Organizer",
+          "fields": [
+            "env"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.4.10",
+      "previous": "v1.4.9",
+      "date": "2026-11-07",
+      "templateCount": 885,
+      "added": [
+        "LinkAce",
+        "ManaWG",
+        "OmniTools"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.4.9",
+      "previous": "v1.4.8",
+      "date": "2026-11-06",
+      "templateCount": 882,
+      "added": [
+        "Ferret"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "AsoBeast",
+          "fields": [
+            "env",
+            "note"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.4.8",
+      "previous": "v1.4.7",
+      "date": "2026-11-06",
+      "templateCount": 881,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Yuvomi",
+          "fields": [
+            "env",
+            "note"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.4.7",
+      "previous": "v1.4.6",
+      "date": "2026-11-05",
+      "templateCount": 881,
+      "added": [
+        "Tolgee"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Dagu",
+          "fields": [
+            "description",
+            "image",
+            "note"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.4.6",
+      "previous": "v1.4.5",
+      "date": "2026-11-05",
+      "templateCount": 880,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Craft-apps",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.4.5",
+      "previous": "v1.4.4",
+      "date": "2026-11-04",
+      "templateCount": 880,
+      "added": [
+        "AsoBeast",
+        "Yamtrack"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.4.4",
+      "previous": "v1.4.3",
+      "date": "2026-11-04",
+      "templateCount": 878,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Stars Organizer",
+          "fields": [
+            "env"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.4.3",
+      "previous": "v1.4.2",
+      "date": "2026-11-03",
+      "templateCount": 878,
+      "added": [
+        "Hister"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.4.2",
+      "previous": "v1.4.1",
+      "date": "2026-11-02",
+      "templateCount": 877,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "OpenTodo",
+          "fields": [
+            "maintainer"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.4.1",
+      "previous": "v1.4.0",
+      "date": "2026-11-02",
+      "templateCount": 877,
+      "added": [
+        "Flagsmith",
+        "Livebook"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.4.0",
+      "previous": "v1.3.28",
+      "date": "2026-11-01",
+      "templateCount": 875,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.28",
+      "previous": "v1.3.27",
+      "date": "2026-10-30",
+      "templateCount": 875,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Cantinarr",
+          "fields": [
+            "logo"
+          ]
+        },
+        {
+          "title": "Lazylibrarian",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.27",
+      "previous": "v1.3.26",
+      "date": "2026-10-30",
+      "templateCount": 875,
+      "added": [
+        "Maintainerr"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.26",
+      "previous": "v1.3.25",
+      "date": "2026-10-29",
+      "templateCount": 874,
+      "added": [
+        "AnythingLLM",
+        "Kaneo",
+        "PicoShare"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.25",
+      "previous": "v1.3.24",
+      "date": "2026-10-28",
+      "templateCount": 871,
+      "added": [
+        "Mathesar"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Stars Organizer",
+          "fields": [
+            "env"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.24",
+      "previous": "v1.3.23",
+      "date": "2026-10-27",
+      "templateCount": 870,
+      "added": [
+        "Aldine",
+        "Mermaid Live Editor",
+        "Spliit",
+        "marimo"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.23",
+      "previous": "v1.3.22",
+      "date": "2026-10-27",
+      "templateCount": 866,
+      "added": [
+        "Casdoor",
+        "Password Pusher",
+        "Ryot",
+        "SparkyFitness"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Kumbara",
+          "fields": [
+            "env"
+          ]
+        },
+        {
+          "title": "LibreDB Studio",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "OpenTodo",
+          "fields": [
+            "description",
+            "image",
+            "logo"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.22",
+      "previous": "v1.3.21",
+      "date": "2026-10-25",
+      "templateCount": 862,
+      "added": [
+        "Yuvomi"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.21",
+      "previous": "v1.3.20",
+      "date": "2026-10-25",
+      "templateCount": 861,
+      "added": [
+        "Jellymeme",
+        "Kumbara",
+        "OpenList",
+        "Stars Organizer",
+        "USCIS Tracker",
+        "Wishlist",
+        "flatnotes",
+        "tududi"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.20",
+      "previous": "v1.3.19",
+      "date": "2026-10-24",
+      "templateCount": 853,
+      "added": [
+        "EspoCRM",
+        "OpenTodo"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.19",
+      "previous": "v1.3.18",
+      "date": "2026-10-23",
+      "templateCount": 851,
+      "added": [],
+      "removed": [
+        "Budge"
+      ],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.18",
+      "previous": "v1.3.17",
+      "date": "2026-10-22",
+      "templateCount": 852,
+      "added": [
+        "Dolibarr",
+        "Easy!Appointments"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Sealskin",
+          "fields": [
+            "description",
+            "env",
+            "logo",
+            "ports"
+          ]
+        },
+        {
+          "title": "Snipe-IT",
+          "fields": [
+            "note"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.17",
+      "previous": "v1.3.16",
+      "date": "2026-10-21",
+      "templateCount": 850,
+      "added": [
+        "Kener",
+        "MyIP",
+        "NodeBB",
+        "Papra",
+        "PlantUML Server",
+        "RustFS",
+        "Snipe-IT",
+        "Spoolman",
+        "YOURLS"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.16",
+      "previous": "v1.3.15",
+      "date": "2026-10-20",
+      "templateCount": 841,
+      "added": [
+        "DbGate",
+        "Langflow"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Craft-apps",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.15",
+      "previous": "v1.3.14",
+      "date": "2026-10-19",
+      "templateCount": 839,
+      "added": [
+        "2FAuth",
+        "LubeLogger",
+        "NocoBase",
+        "Teable",
+        "Verdaccio"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.14",
+      "previous": "v1.3.13",
+      "date": "2026-10-18",
+      "templateCount": 834,
+      "added": [
+        "CommaFeed",
+        "Donetick",
+        "JupyterLab",
+        "KitchenOwl",
+        "LibreTranslate",
+        "Opengist",
+        "SilverBullet",
+        "TREK",
+        "Wakapi",
+        "Zipline",
+        "copyparty",
+        "drawDB",
+        "ezBookkeeping"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.13",
+      "previous": "v1.3.12",
+      "date": "2026-10-17",
+      "templateCount": 821,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "AI Marketplace Monitor",
+          "fields": [
+            "env"
+          ]
+        },
+        {
+          "title": "LibreDB Studio",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.12",
+      "previous": "v1.3.11",
+      "date": "2026-10-16",
+      "templateCount": 821,
+      "added": [
+        "AFFiNE",
+        "Apache Answer",
+        "BentoPDF",
+        "Bytebase",
+        "Cloudreve",
+        "ConvertX",
+        "CyberChef",
+        "Etherpad",
+        "Firefly III",
+        "Grist",
+        "Halo",
+        "Kanboard",
+        "RSSHub",
+        "Readeck",
+        "Seerr",
+        "SiYuan",
+        "Super Productivity",
+        "Termix",
+        "Wallos"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.11",
+      "previous": "v1.3.10",
+      "date": "2026-10-16",
+      "templateCount": 802,
+      "added": [
+        "Seawise.io Client"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "LibreDB Studio",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.10",
+      "previous": "v1.3.9",
+      "date": "2026-10-16",
+      "templateCount": 801,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "LibreDB Studio",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.9",
+      "previous": "v1.3.8",
+      "date": "2026-10-15",
+      "templateCount": 801,
+      "added": [
+        "Audiosilo",
+        "Craft-apps",
+        "Nomacs"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "LynxPrompt",
+          "fields": [
+            "env",
+            "note",
+            "restart_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.8",
+      "previous": "v1.3.7",
+      "date": "2026-10-15",
+      "templateCount": 798,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "LibreDB Studio",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.7",
+      "previous": "v1.3.6",
+      "date": "2026-10-13",
+      "templateCount": 798,
+      "added": [
+        "SolidPing"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "LibreDB Studio",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.6",
+      "previous": "v1.3.5",
+      "date": "2026-10-13",
+      "templateCount": 797,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "LibreDB Studio",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.5",
+      "previous": "v1.3.4",
+      "date": "2026-10-12",
+      "templateCount": 797,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "LibreDB Studio",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.4",
+      "previous": "v1.3.3",
+      "date": "2026-10-10",
+      "templateCount": 797,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "LibreDB Studio",
+          "fields": [
+            "categories",
+            "description",
+            "env",
+            "logo",
+            "maintainer",
+            "note",
+            "ports"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.3",
+      "previous": "v1.3.2",
+      "date": "2026-10-10",
+      "templateCount": 797,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "AI Marketplace Monitor",
+          "fields": [
+            "env"
+          ]
+        },
+        {
+          "title": "Pumperly",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.3.2",
+      "previous": "v1.3.1",
+      "date": "2026-10-10",
+      "templateCount": 797,
+      "added": [
+        "AI Marketplace Monitor"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.1",
+      "previous": "v1.3.0",
+      "date": "2026-10-08",
+      "templateCount": 796,
+      "added": [
+        "Softing SDEX Suite"
+      ],
+      "removed": [
+        "Softing EdgeConnector 840D",
+        "Softing EdgeConnector Aggregator",
+        "Softing EdgeConnector FANUC CNC",
+        "Softing EdgeConnector Siemens",
+        "Softing EdgeConnector modbus"
+      ],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.3.0",
+      "previous": "v1.2.10",
+      "date": "2026-10-01",
+      "templateCount": 800,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.2.10",
+      "previous": "v1.2.9",
+      "date": "2026-09-28",
+      "templateCount": 800,
+      "added": [
+        "ReplayHaven"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.2.9",
+      "previous": "v1.2.8",
+      "date": "2026-09-27",
+      "templateCount": 799,
+      "added": [
+        "Homedex"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.2.8",
+      "previous": "v1.2.7",
+      "date": "2026-09-25",
+      "templateCount": 798,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Apprise-API (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "ArchiSteamFarm",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "AriaNG",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Change Detection",
+          "fields": [
+            "description",
+            "image"
+          ]
+        },
+        {
+          "title": "ClickHouse Cluster",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Cloud Commander",
+          "fields": [
+            "categories",
+            "image"
+          ]
+        },
+        {
+          "title": "DaVinci Postgres Server",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Dashy (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "DeeMix",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Diskover (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "DocuSeal (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Dokku (container)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Domoticz",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Droppy",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Duplicacy",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Filerun",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Flame-Dashboard",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Gaps",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Grocy (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Homarr (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Homebridge (container)",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Homebridge - Debian",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Homepage (container)",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Homepage (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Jellyfin (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Klaxon",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Logzio Logs Collector",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Logzio Metrics Collector",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "MariaDB (stack)",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "MariaDB Galera",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "MariaDB Replication",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Mastodon (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "MeTube",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "MongoDB Replica Set",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "MySQL (stack)",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "MySQL InnoDB Cluster",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Mysql-workbench",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "NUTS",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Netboot.xyz (container)",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Nginx Proxy Manager (container)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Nginx Proxy Manager (stack)",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Oracle Database Free",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Overseerr (container)",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Percona Server",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Percona XtraDB Cluster",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Phpmyadmin",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Pi.alert",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Plex Media Server",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Pure-FTP Server",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Rclone Config Backup",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Readarr (container)",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Reveal.js",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "SQL Server (stack)",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Scality S3",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "SickRage",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Speedtest Tracker (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Sqlitebrowser",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "SurrealDB",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Tabby",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Traefik (container)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Watchtower {shmolf}",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Wizarr",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "Your_spotify (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Zus.am",
+          "fields": [
+            "image"
+          ]
+        },
+        {
+          "title": "changedetection.io (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "iobroker",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "n8n (container)",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "ntfy (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "vsftpd FTP Server",
+          "fields": [
+            "categories",
+            "image"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.2.7",
+      "previous": "v1.2.6",
+      "date": "2026-09-24",
+      "templateCount": 798,
+      "added": [
+        "Actual Budget",
+        "Agent Box",
+        "Apache Kafka",
+        "Azure Pipelines Agent",
+        "Bagisto",
+        "Bugsink",
+        "Buildkite Agent",
+        "Buzz",
+        "Cal.com",
+        "Campfire",
+        "Chatwoot",
+        "ChromaDB",
+        "ClickHouse Cluster",
+        "Cognee",
+        "Convex",
+        "Cronicle",
+        "Dify",
+        "Directus",
+        "Docker Registry",
+        "DocuSeal (stack)",
+        "Documenso",
+        "Factorio Server",
+        "FileBrowser (stack)",
+        "Fizzy",
+        "Flowise",
+        "Forgejo (stack)",
+        "Forgejo Runner",
+        "Garage",
+        "GitHub Actions Runner",
+        "GitLab Runner",
+        "GlitchTip",
+        "Grafana Stack",
+        "Hasura",
+        "Hermes Agent",
+        "Infisical",
+        "Jellyfin (stack)",
+        "Jenkins (stack)",
+        "Karakeep",
+        "Keycloak",
+        "Kilo (headless)",
+        "Kong Gateway",
+        "Langfuse",
+        "Letta",
+        "Linkwarden",
+        "LiteLLM",
+        "LiveKit",
+        "LiveKit Agents",
+        "Logto",
+        "Mailpit",
+        "MariaDB (stack)",
+        "MariaDB Galera",
+        "MariaDB Replication",
+        "Mattermost",
+        "Memos",
+        "Metabase",
+        "MinIO (stack)",
+        "Minecraft Server (stack)",
+        "MongoDB Replica Set",
+        "MySQL (stack)",
+        "MySQL InnoDB Cluster",
+        "NATS Cluster",
+        "Odoo (stack)",
+        "Ollama",
+        "Open Mercato",
+        "Open WebUI",
+        "OpenClaw",
+        "OpenObserve",
+        "Oracle Database Free",
+        "Owncast",
+        "Parseable",
+        "Penpot",
+        "Percona Server",
+        "Percona XtraDB Cluster",
+        "Phoenix",
+        "Plausible",
+        "PocketBase",
+        "Prefect",
+        "PrestaShop",
+        "Qdrant",
+        "RabbitMQ (stack)",
+        "Redis (stack)",
+        "Redis Cluster (stack)",
+        "Redis Sentinel",
+        "Redpanda",
+        "Rocket.Chat",
+        "Roundcube",
+        "SFTPGo",
+        "SQL Server (stack)",
+        "Saleor",
+        "SearXNG (stack)",
+        "Shlink",
+        "Supabase",
+        "Supabase Lite",
+        "Supabase Nano",
+        "Supabase Pico",
+        "Superset",
+        "TEI Embeddings",
+        "Temporal",
+        "Twenty CRM",
+        "Typebot",
+        "Typesense",
+        "Umami",
+        "Unleash",
+        "Valkey",
+        "Valkey Cluster",
+        "Valkey Sentinel",
+        "Vaultwarden (stack)",
+        "Writebook",
+        "Zitadel",
+        "changedetection.io (stack)",
+        "code-server (stack)",
+        "ntfy (stack)",
+        "useSend"
+      ],
+      "removed": [],
+      "renamed": [
+        {
+          "from": "Changedetection.io",
+          "to": "Changedetection.io (container)"
+        },
+        {
+          "from": "Code-server",
+          "to": "Code-server (container)"
+        },
+        {
+          "from": "DocuSeal",
+          "to": "DocuSeal (container)"
+        },
+        {
+          "from": "File browser",
+          "to": "File browser (container)"
+        },
+        {
+          "from": "Forgejo",
+          "to": "Forgejo (container)"
+        },
+        {
+          "from": "Jellyfin",
+          "to": "Jellyfin (container)"
+        },
+        {
+          "from": "Jenkins",
+          "to": "Jenkins (container)"
+        },
+        {
+          "from": "MariaDB",
+          "to": "MariaDB (container)"
+        },
+        {
+          "from": "Minecraft Server",
+          "to": "Minecraft Server (container)"
+        },
+        {
+          "from": "Minio",
+          "to": "Minio (container)"
+        },
+        {
+          "from": "MySQL",
+          "to": "MySQL (container)"
+        },
+        {
+          "from": "Odoo",
+          "to": "Odoo (container)"
+        },
+        {
+          "from": "RabbitMQ",
+          "to": "RabbitMQ (container)"
+        },
+        {
+          "from": "Redis",
+          "to": "Redis (container)"
+        },
+        {
+          "from": "Redis Cluster",
+          "to": "Redis Cluster (swarm)"
+        },
+        {
+          "from": "SQL Server",
+          "to": "SQL Server (container)"
+        },
+        {
+          "from": "SearXNG",
+          "to": "SearXNG (container)"
+        },
+        {
+          "from": "Vaultwarden",
+          "to": "Vaultwarden (container)"
+        },
+        {
+          "from": "ntfy",
+          "to": "ntfy (container)"
+        }
+      ],
+      "updated": []
+    },
+    {
+      "version": "v1.2.6",
+      "previous": "v1.2.5",
+      "date": "2026-09-23",
+      "templateCount": 685,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Cantinarr",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.2.5",
+      "previous": "v1.2.4",
+      "date": "2026-09-23",
+      "templateCount": 685,
+      "added": [],
+      "removed": [],
+      "renamed": [
+        {
+          "from": "Calibre Web",
+          "to": "Calibre-web"
+        },
+        {
+          "from": "ChangeDetection",
+          "to": "Change Detection"
+        },
+        {
+          "from": "Couchpotato",
+          "to": "CouchPotato"
+        },
+        {
+          "from": "Filebrowser",
+          "to": "File browser"
+        },
+        {
+          "from": "Mariadb",
+          "to": "MariaDB"
+        },
+        {
+          "from": "MinIO",
+          "to": "Minio"
+        },
+        {
+          "from": "Node Red",
+          "to": "Node-Red"
+        },
+        {
+          "from": "RustDesk (container)",
+          "to": "Rustdesk (container)"
+        },
+        {
+          "from": "Wordpress (stack)",
+          "to": "WordPress (stack)"
+        },
+        {
+          "from": "gazee",
+          "to": "Gazee"
+        },
+        {
+          "from": "musicbrainz",
+          "to": "MusicBrainz"
+        }
+      ],
+      "updated": [
+        {
+          "title": "Adguard",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Airsonic (container)",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Authelia",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer",
+            "note"
+          ]
+        },
+        {
+          "title": "Booksonic",
+          "fields": [
+            "categories",
+            "description",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Bookstack (stack)",
+          "fields": [
+            "logo",
+            "maintainer",
+            "repository"
+          ]
+        },
+        {
+          "title": "Caddy",
+          "fields": [
+            "categories",
+            "description",
+            "logo",
+            "maintainer",
+            "name",
+            "note",
+            "ports",
+            "restart_policy",
+            "volumes"
+          ]
+        },
+        {
+          "title": "Cardigann",
+          "fields": [
+            "env",
+            "labels",
+            "logo",
+            "maintainer",
+            "platform",
+            "ports",
+            "restart_policy",
+            "volumes"
+          ]
+        },
+        {
+          "title": "Chevereto",
+          "fields": [
+            "categories",
+            "description",
+            "env",
+            "logo",
+            "maintainer",
+            "note",
+            "ports"
+          ]
+        },
+        {
+          "title": "Chowdown",
+          "fields": [
+            "categories",
+            "description",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Codiad",
+          "fields": [
+            "description",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Daapd",
+          "fields": [
+            "maintainer"
+          ]
+        },
+        {
+          "title": "DashMachine",
+          "fields": [
+            "categories",
+            "description",
+            "image",
+            "logo",
+            "maintainer",
+            "note",
+            "ports"
+          ]
+        },
+        {
+          "title": "DeeMix",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer",
+            "ports"
+          ]
+        },
+        {
+          "title": "Domoticz",
+          "fields": [
+            "description",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Dozzle",
+          "fields": [
+            "command",
+            "description",
+            "env",
+            "labels",
+            "logo",
+            "maintainer",
+            "platform",
+            "ports",
+            "privileged",
+            "restart_policy",
+            "volumes"
+          ]
+        },
+        {
+          "title": "Elasticsearch",
+          "fields": [
+            "env",
+            "image",
+            "maintainer",
+            "name",
+            "note",
+            "restart_policy"
+          ]
+        },
+        {
+          "title": "EmbyStat",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Ghost (container)",
+          "fields": [
+            "categories",
+            "description",
+            "env",
+            "logo",
+            "maintainer",
+            "name",
+            "note",
+            "ports",
+            "restart_policy",
+            "volumes"
+          ]
+        },
+        {
+          "title": "Ghostfolio",
+          "fields": [
+            "categories",
+            "description",
+            "env",
+            "logo",
+            "maintainer",
+            "name",
+            "note",
+            "ports",
+            "repository",
+            "restart_policy"
+          ]
+        },
+        {
+          "title": "Grafana",
+          "fields": [
+            "categories",
+            "description",
+            "logo",
+            "maintainer",
+            "note",
+            "ports",
+            "repository",
+            "restart_policy"
+          ]
+        },
+        {
+          "title": "Guacamole",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Headphones",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Homer",
+          "fields": [
+            "categories",
+            "description",
+            "env",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Huginn",
+          "fields": [
+            "categories",
+            "image",
+            "logo",
+            "maintainer",
+            "note",
+            "ports"
+          ]
+        },
+        {
+          "title": "Invoice Ninja (stack)",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer",
+            "repository"
+          ]
+        },
+        {
+          "title": "Kodi Headless",
+          "fields": [
+            "description",
+            "env",
+            "image",
+            "logo",
+            "maintainer",
+            "note",
+            "ports",
+            "volumes"
+          ]
+        },
+        {
+          "title": "Let's Encrypt / SWAG",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "McMyAdmin 2",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Minetest",
+          "fields": [
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Murmur",
+          "fields": [
+            "categories",
+            "env",
+            "image",
+            "logo",
+            "maintainer",
+            "note"
+          ]
+        },
+        {
+          "title": "Muximux",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "MySQL",
+          "fields": [
+            "env",
+            "image",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Mylar",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Nextcloud (stack)",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer",
+            "repository"
+          ]
+        },
+        {
+          "title": "Nginx",
+          "fields": [
+            "categories",
+            "description",
+            "env",
+            "image",
+            "logo",
+            "maintainer",
+            "name",
+            "note",
+            "ports",
+            "restart_policy",
+            "volumes"
+          ]
+        },
+        {
+          "title": "Nginx Proxy Manager (container)",
+          "fields": [
+            "logo",
+            "maintainer",
+            "ports"
+          ]
+        },
+        {
+          "title": "OpenVPN Access Server",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Organizr (container)",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Owncloud",
+          "fields": [
+            "categories",
+            "maintainer",
+            "repository"
+          ]
+        },
+        {
+          "title": "Petio",
+          "fields": [
+            "categories",
+            "env",
+            "logo",
+            "maintainer",
+            "repository"
+          ]
+        },
+        {
+          "title": "PhotoShow",
+          "fields": [
+            "description",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Pi-Hole",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Plex Requests",
+          "fields": [
+            "categories",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "PostgreSQL",
+          "fields": [
+            "categories",
+            "description",
+            "env",
+            "logo",
+            "maintainer",
+            "name",
+            "note",
+            "ports",
+            "restart_policy",
+            "volumes"
+          ]
+        },
+        {
+          "title": "ProtonMail Bridge",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Pydio",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Quassel IRC",
+          "fields": [
+            "description",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Reactive-Resume",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "SickChill",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Snibox (container)",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Tiny Tiny RSS",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Transmission-OpenVPN",
+          "fields": [
+            "categories",
+            "description",
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "UniFi Controller",
+          "fields": [
+            "logo",
+            "maintainer"
+          ]
+        },
+        {
+          "title": "Vaultwarden",
+          "fields": [
+            "categories",
+            "description",
+            "logo",
+            "maintainer",
+            "note",
+            "ports",
+            "volumes"
+          ]
+        },
+        {
+          "title": "Watchtower",
+          "fields": [
+            "categories",
+            "command",
+            "logo",
+            "maintainer",
+            "note"
+          ]
+        },
+        {
+          "title": "Whoogle",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer",
+            "note"
+          ]
+        },
+        {
+          "title": "Yacht",
+          "fields": [
+            "categories",
+            "maintainer",
+            "note"
+          ]
+        },
+        {
+          "title": "YouTubeDL-Material",
+          "fields": [
+            "categories",
+            "logo",
+            "maintainer",
+            "note"
+          ]
+        },
+        {
+          "title": "n8n (container)",
+          "fields": [
+            "categories",
+            "description",
+            "env",
+            "image",
+            "labels",
+            "logo",
+            "maintainer",
+            "note",
+            "platform",
+            "ports",
+            "restart_policy",
+            "volumes"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.2.4",
+      "previous": "v1.2.3",
+      "date": "2026-09-19",
+      "templateCount": 685,
+      "added": [
+        "LibreDB Studio"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.2.3",
+      "previous": "v1.2.2",
+      "date": "2026-09-04",
+      "templateCount": 684,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Cantinarr",
+          "fields": [
+            "env"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.2.2",
+      "previous": "v1.2.1",
+      "date": "2026-09-04",
+      "templateCount": 684,
+      "added": [
+        "Atrium"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.2.1",
+      "previous": "v1.2.0",
+      "date": "2026-09-03",
+      "templateCount": 683,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Cantinarr",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.2.0",
+      "previous": "v1.1.3",
+      "date": "2026-09-01",
+      "templateCount": 683,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.1.3",
+      "previous": "v1.1.2",
+      "date": "2026-08-22",
+      "templateCount": 683,
+      "added": [
+        "Cantinarr"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.1.2",
+      "previous": "v1.1.1",
+      "date": "2026-08-20",
+      "templateCount": 682,
+      "added": [
+        "DockRoute"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.1.1",
+      "previous": "v1.1.0",
+      "date": "2026-08-02",
+      "templateCount": 681,
+      "added": [
+        "AudioMuse-AI",
+        "AudioMuse-AI (NVIDIA GPU)"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.1.0",
+      "previous": "v1.0.12",
+      "date": "2026-08-01",
+      "templateCount": 679,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.0.12",
+      "previous": "v1.0.11",
+      "date": "2026-07-29",
+      "templateCount": 679,
+      "added": [
+        "cairn"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.0.11",
+      "previous": "v1.0.10",
+      "date": "2026-07-27",
+      "templateCount": 678,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.0.10",
+      "previous": "v1.0.9",
+      "date": "2026-07-27",
+      "templateCount": 678,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "FluxDown",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "PodFetch",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Terraria Server",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "Valheim Server",
+          "fields": [
+            "categories"
+          ]
+        },
+        {
+          "title": "systemprompt",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "tela",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.0.9",
+      "previous": "v1.0.8",
+      "date": "2026-07-27",
+      "templateCount": 678,
+      "added": [
+        "FluxDown",
+        "Pelorus"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.0.8",
+      "previous": "v1.0.7",
+      "date": "2026-07-25",
+      "templateCount": 676,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Dashy (container)",
+          "fields": [
+            "categories",
+            "description",
+            "env",
+            "logo",
+            "maintainer",
+            "name",
+            "note",
+            "ports",
+            "volumes"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.0.7",
+      "previous": "v1.0.6",
+      "date": "2026-07-25",
+      "templateCount": 676,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "CashPilot",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "CloudBeaver",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Cloudflared-web",
+          "fields": [
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "CryptPad",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "Dagu",
+          "fields": [
+            "command",
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "Databag",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "Docmost",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "DocuSeal",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "Forgejo",
+          "fields": [
+            "description",
+            "image"
+          ]
+        },
+        {
+          "title": "Gatus",
+          "fields": [
+            "description",
+            "image",
+            "note"
+          ]
+        },
+        {
+          "title": "Glance",
+          "fields": [
+            "description",
+            "note"
+          ]
+        },
+        {
+          "title": "GoToSocial",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "Gotenberg",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Hivekeep",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "HomeLab Monitor",
+          "fields": [
+            "description",
+            "env",
+            "volumes"
+          ]
+        },
+        {
+          "title": "Homebox",
+          "fields": [
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "IT-Tools",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Linkding",
+          "fields": [
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "Listmonk",
+          "fields": [
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "LynxPrompt",
+          "fields": [
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "Outline",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "PairDrop",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Planka (stack)",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "Pumperly",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "Reach Me Out",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Stalwart Mail Server",
+          "fields": [
+            "description",
+            "env",
+            "note",
+            "volumes"
+          ]
+        },
+        {
+          "title": "Stump",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Technitium DNS",
+          "fields": [
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "Terraria Server",
+          "fields": [
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "Traefik (stack)",
+          "fields": [
+            "description"
+          ]
+        },
+        {
+          "title": "Valheim Server",
+          "fields": [
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "Woodpecker CI",
+          "fields": [
+            "description",
+            "env",
+            "note"
+          ]
+        },
+        {
+          "title": "ZTNet",
+          "fields": [
+            "description",
+            "env"
+          ]
+        },
+        {
+          "title": "ntfy",
+          "fields": [
+            "description",
+            "env"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.0.6",
+      "previous": "v1.0.5",
+      "date": "2026-07-18",
+      "templateCount": 676,
+      "added": [
+        "PodFetch"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.0.5",
+      "previous": "v1.0.4",
+      "date": "2026-07-18",
+      "templateCount": 675,
+      "added": [
+        "systemprompt"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.0.4",
+      "previous": "v1.0.3",
+      "date": "2026-07-17",
+      "templateCount": 674,
+      "added": [],
+      "removed": [
+        "Openvscode-server"
+      ],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.0.3",
+      "previous": "v1.0.2",
+      "date": "2026-07-13",
+      "templateCount": 675,
+      "added": [
+        "Reach Me Out"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    },
+    {
+      "version": "v1.0.2",
+      "previous": "v1.0.1",
+      "date": "2026-07-11",
+      "templateCount": 674,
+      "added": [
+        "Doplarr_rs"
+      ],
+      "removed": [
+        "Doplarr"
+      ],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Swag",
+          "fields": [
+            "env"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.0.1",
+      "previous": "v1.0.0",
+      "date": "2026-07-10",
+      "templateCount": 674,
+      "added": [
+        "Cloudflared-web"
+      ],
+      "removed": [],
+      "renamed": [],
+      "updated": [
+        {
+          "title": "Kimai",
+          "fields": [
+            "env"
+          ]
+        },
+        {
+          "title": "Nginx",
+          "fields": [
+            "description"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v1.0.0",
+      "previous": null,
+      "date": "2026-07-06",
+      "templateCount": 673,
+      "added": [],
+      "removed": [],
+      "renamed": [],
+      "updated": []
+    }
+  ]
+}

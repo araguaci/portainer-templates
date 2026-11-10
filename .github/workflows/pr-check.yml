@@ -1,0 +1,315 @@
+# Validates PRs -- each check is gated by a file-path matrix so only relevant
+# ones run. Safe for forks (read-only, no secrets).
+name: 🚦 PR Checks
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Least privilege: nothing here needs write access (keeps fork PRs working)
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Detect which kinds of files changed, so each check can opt in
+  detect-changes:
+    name: 🔎 Detect Changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      local: ${{ steps.filter.outputs.local }}
+      stacks: ${{ steps.filter.outputs.stacks }}
+      sources_csv: ${{ steps.filter.outputs.sources_csv }}
+      scripts: ${{ steps.filter.outputs.scripts }}
+      workflows: ${{ steps.filter.outputs.workflows }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # PR-only (needs a base to diff); on dispatch every check runs via its fallback
+      - name: Filter paths
+        id: filter
+        if: github.event_name == 'pull_request'
+        uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4
+        with:
+          filters: |
+            local:
+              - 'sources/local/**'
+            stacks:
+              - 'sources/stacks/**'
+            sources_csv:
+              - 'sources.csv'
+              - 'overrides.json'
+            scripts:
+              - 'lib/**'
+              - 'Schema.json'
+              - 'Makefile'
+            workflows:
+              - '.github/workflows/**'
+
+  # The important one: thoroughly validate added/changed local template sources
+  local-sources:
+    name: 🧩 Local Sources
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: detect-changes
+    if: needs.detect-changes.outputs.local == 'true' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.x'
+          cache: pip
+          cache-dependency-path: lib/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r lib/requirements.txt
+
+      - name: Validate local template sources
+        run: python lib/validate_sources.py sources/local
+
+  # Validate compose stack files referenced by local stack templates
+  stacks:
+    name: 🐳 Stack Files
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: detect-changes
+    if: needs.detect-changes.outputs.stacks == 'true' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.x'
+          cache: pip
+          cache-dependency-path: lib/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r lib/requirements.txt PyYAML
+
+      - name: Validate compose stack files
+        run: python lib/validate_sources.py sources/stacks
+
+  # Validate the external sources list + the per-template overrides that pin against it
+  sources-list:
+    name: 📇 Sources List
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: detect-changes
+    if: needs.detect-changes.outputs.sources_csv == 'true' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          # Deep enough to diff sources.csv against the PR's base
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.x'
+          cache: pip
+          cache-dependency-path: lib/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r lib/requirements.txt
+
+      - name: Validate sources.csv + overrides.json
+        run: python lib/validate_sources.py sources.csv overrides.json
+
+      # Check source urls this PR changes: a collection the build can't read stops the nightly
+      - name: Validate newly added sources
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          # '|| true' since grep exits 1 when this PR only touches overrides.json
+          urls=$(git diff "$BASE_SHA" -- sources.csv \
+                 | grep '^+[^+]' | cut -c2- \
+                 | awk -F, '{ gsub(/[[:blank:]]/, "", $2)
+                              if ($2 ~ /^https?:\/\//) print $2 }' || true)
+          if [ -z "$urls" ]; then
+            echo "This PR changes no source urls, nothing to fetch."
+            exit 0
+          fi
+          status=0
+          for url in $urls; do
+            echo "--- Validating $url"
+            python lib/validate_sources.py "$url" || status=1
+          done
+          exit $status
+
+  # When the tooling or schema changes: compile, self-check the schema, re-validate output
+  scripts:
+    name: 🐍 Scripts + Schema
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: detect-changes
+    if: needs.detect-changes.outputs.scripts == 'true' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.x'
+          cache: pip
+          cache-dependency-path: lib/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r lib/requirements.txt
+
+      - name: Byte-compile lib scripts
+        run: python -m py_compile lib/*.py
+
+      - name: Check Schema.json is a valid Draft-07 schema
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from jsonschema import Draft7Validator
+          Draft7Validator.check_schema(json.load(open('Schema.json')))
+          print('Schema.json is a valid Draft-07 schema')
+          PY
+
+      - name: Validate committed templates.json
+        run: python lib/validate.py
+
+  # Lint every workflow with actionlint + zizmor
+  workflow-audit:
+    name: 🛠️ Workflow Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: detect-changes
+    if: needs.detect-changes.outputs.workflows == 'true' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Run actionlint
+        uses: raven-actions/actionlint@3d39aea434753780c3b3d4a1a31c854b4dbf49d7 # v2
+        with:
+          # comma-separated globs -- matches every workflow
+          files: .github/workflows/*.yml
+          fail-on-error: true
+
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
+        with:
+          # scan the whole workflows dir
+          inputs: .github/workflows/
+          online-audits: false
+          advanced-security: false
+          annotations: true
+
+  # Always runs: exercises the real pipeline end-to-end and publishes the result
+  build:
+    name: 🔨 Build + Artifact
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.x'
+          cache: pip
+          cache-dependency-path: lib/requirements.txt
+
+      - name: Install dependencies
+        run: make install_requirements
+
+      - name: Download external sources
+        # Non-fatal: a transient upstream outage must not fail a contributor's PR
+        run: make download || echo "::warning::Some external sources failed to download; tolerated for PR checks"
+
+      - name: Combine + validate
+        # ALLOW_SHRINK because external sources may be partial here; the publish workflow stays strict
+        env:
+          ALLOW_SHRINK: '1'
+        run: make combine validate
+
+      - name: Upload templates.json
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: templates-json
+          path: templates.json
+          if-no-files-found: error
+
+  # Render a table of every check's result into the run summary
+  summary:
+    name: 📋 Summary
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: always()
+    continue-on-error: true
+    needs:
+      - local-sources
+      - stacks
+      - sources-list
+      - scripts
+      - workflow-audit
+      - build
+    steps:
+      - name: Render summary
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: |
+          set -euo pipefail
+          label() {
+            case "$1" in
+              local-sources) echo "🧩 Local Sources" ;;
+              stacks) echo "🐳 Stack Files" ;;
+              sources-list) echo "📇 Sources List" ;;
+              scripts) echo "🐍 Scripts + Schema" ;;
+              workflow-audit) echo "🛠️ Workflow Audit" ;;
+              build) echo "🔨 Build + Artifact" ;;
+              *) echo "$1" ;;
+            esac
+          }
+          status() {
+            case "$1" in
+              success) echo "✅ Passed" ;;
+              skipped) echo "⏭️ Skipped" ;;
+              cancelled) echo "🚫 Cancelled" ;;
+              failure) echo "❌ Failed" ;;
+              *) echo "❔ $1" ;;
+            esac
+          }
+          {
+            echo "## PR Check Summary"
+            echo ""
+            echo "| Check | Result |"
+            echo "|-------|--------|"
+          } >> "$GITHUB_STEP_SUMMARY"
+          for job in $(echo "$NEEDS" | jq -r 'keys[]'); do
+            result=$(echo "$NEEDS" | jq -r --arg j "$job" '.[$j].result')
+            echo "| $(label "$job") | $(status "$result") |" >> "$GITHUB_STEP_SUMMARY"
+          done

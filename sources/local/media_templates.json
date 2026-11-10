@@ -1,0 +1,313 @@
+{
+  "templates": [
+    {
+      "categories": [
+        "Music",
+        "Media",
+        "AI"
+      ],
+      "description": "Automatic playlist generation for self-hosted music servers. Analyses your library locally to group tracks by how they sound. Works with Navidrome, Jellyfin, LMS, Lyrion, Emby and Plex. GitHub: [NeptuneHub/AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI)",
+      "env": [
+        {
+          "default": "latest",
+          "description": "Standard needs a CPU with AVX2 (Intel 2015+ or ARM). Pick the no-AVX2 build for older CPUs, or when a hypervisor (Proxmox/QEMU) hides AVX2 from the guest.",
+          "label": "Image variant",
+          "name": "AUDIOMUSE_TAG",
+          "select": [
+            {
+              "default": true,
+              "text": "Standard (requires AVX2)",
+              "value": "latest"
+            },
+            {
+              "text": "No AVX2 (older CPUs, experimental)",
+              "value": "latest-noavx2"
+            }
+          ]
+        },
+        {
+          "default": "8000",
+          "description": "Host port for the AudioMuse-AI web UI and API.",
+          "label": "Web UI port",
+          "name": "FRONTEND_PORT"
+        },
+        {
+          "default": "UTC",
+          "description": "Timezone for logs and scheduled tasks, e.g. Europe/London.",
+          "label": "Timezone",
+          "name": "TZ"
+        },
+        {
+          "default": "audiomuse",
+          "label": "Database user",
+          "name": "POSTGRES_USER"
+        },
+        {
+          "default": "audiomusepassword",
+          "description": "Change this before the first deploy - it is set when the database is initialised.",
+          "label": "Database password",
+          "name": "POSTGRES_PASSWORD"
+        }
+      ],
+      "logo": "https://raw.githubusercontent.com/NeptuneHub/AudioMuse-AI/main/native-build/linux/packaging/icons/audiomuse-ai_128.png",
+      "name": "audiomuse-ai",
+      "note": "Deploys the web app, an analysis worker, PostgreSQL 15 and Redis. Open <code>http://&lt;host&gt;:8000</code> and complete the <b>Setup Wizard</b> to connect your music server(s) - since v1.0.0 everything except the database, Redis and timezone is configured in the browser and stored in the database. Then run <b>Analysis and Clustering &rarr; Start Analysis</b> to scan your library before using the other features; a first analysis is CPU-heavy and can take hours on a large library. API docs are at <code>/apidocs/</code>. Needs 4+ CPU cores, 8GB RAM and SSD storage. PostgreSQL and Redis are internal to the stack and are not published on the host. For NVIDIA GPU acceleration, use the <i>AudioMuse-AI (NVIDIA GPU)</i> template instead.",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/audiomuse-ai.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "restart_policy": "unless-stopped",
+      "title": "AudioMuse-AI",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Music",
+        "Media",
+        "AI"
+      ],
+      "description": "AudioMuse-AI with NVIDIA GPU acceleration for the analysis and clustering jobs. Needs the NVIDIA Container Toolkit on the host. GitHub: [NeptuneHub/AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI)",
+      "env": [
+        {
+          "default": "latest-nvidia",
+          "description": "GPU builds are published for linux/amd64 only. Use latest-nvidia to track releases, or pin one, e.g. 3.1.1-nvidia.",
+          "label": "Image tag",
+          "name": "AUDIOMUSE_TAG"
+        },
+        {
+          "default": "0",
+          "description": "Index of the GPU to pass through, as shown by nvidia-smi. Usually 0.",
+          "label": "GPU device ID",
+          "name": "NVIDIA_GPU_ID"
+        },
+        {
+          "default": "true",
+          "description": "Run KMeans/DBSCAN/PCA on the GPU via RAPIDS cuML, falling back to CPU on error. Analysis always uses the GPU on this image.",
+          "label": "GPU clustering",
+          "name": "USE_GPU_CLUSTERING",
+          "select": [
+            {
+              "default": true,
+              "text": "Enabled",
+              "value": "true"
+            },
+            {
+              "text": "Disabled",
+              "value": "false"
+            }
+          ]
+        },
+        {
+          "default": "8000",
+          "description": "Host port for the AudioMuse-AI web UI and API.",
+          "label": "Web UI port",
+          "name": "FRONTEND_PORT"
+        },
+        {
+          "default": "UTC",
+          "description": "Timezone for logs and scheduled tasks, e.g. Europe/London.",
+          "label": "Timezone",
+          "name": "TZ"
+        },
+        {
+          "default": "audiomuse",
+          "label": "Database user",
+          "name": "POSTGRES_USER"
+        },
+        {
+          "default": "audiomusepassword",
+          "description": "Change this before the first deploy - it is set when the database is initialised.",
+          "label": "Database password",
+          "name": "POSTGRES_PASSWORD"
+        }
+      ],
+      "logo": "https://raw.githubusercontent.com/NeptuneHub/AudioMuse-AI/main/native-build/linux/packaging/icons/audiomuse-ai_128.png",
+      "name": "audiomuse-ai-nvidia",
+      "note": "Same stack as <i>AudioMuse-AI</i>, with the GPU reserved for the app and worker containers. <b>Prerequisites:</b> an NVIDIA GPU on driver/CUDA 12.8.1 or later (8GB VRAM recommended), and the <a href=\"https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html\" target=\"_blank\">NVIDIA Container Toolkit</a> installed and wired into Docker on the host - without it the containers will not start. GPU support is marked experimental upstream. After deploying, open <code>http://&lt;host&gt;:8000</code> and complete the <b>Setup Wizard</b> to connect your music server(s), then run <b>Analysis and Clustering &rarr; Start Analysis</b>. PostgreSQL and Redis are internal to the stack and are not published on the host.",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/audiomuse-ai-nvidia.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "restart_policy": "unless-stopped",
+      "title": "AudioMuse-AI (NVIDIA GPU)",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Downloaders",
+        "Tools"
+      ],
+      "description": "Multi-protocol download manager with a web UI. Handles HTTP/HTTPS, FTP, BitTorrent (DHT/magnet), eD2K/Kad, HLS and DASH, with dynamic file segmentation, token-bucket rate limiting and SQLite-backed resume. Exposes an aria2-compatible JSON-RPC API. GitHub: [zerx-lab/FluxDown](https://github.com/zerx-lab/FluxDown)",
+      "env": [
+        {
+          "default": "UTC",
+          "label": "Timezone",
+          "name": "TZ"
+        }
+      ],
+      "image": "ghcr.io/zerx-lab/fluxdown-server:0.2.3",
+      "logo": "https://cdn.jsdelivr.net/gh/zerx-lab/FluxDown@main/assets/logo/fluxdown_logo.svg",
+      "maintainer": "zerx-lab",
+      "name": "fluxdown",
+      "note": "First launch prints a one-time admin token to the container log: <code>docker logs &lt;container&gt; 2>&amp;1 | grep -i token</code>. The management API and the built-in MCP endpoint both require this token. Web UI is served on port 17800.",
+      "platform": "linux",
+      "ports": [
+        "17800:17800/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "FluxDown",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/data"
+        },
+        {
+          "container": "/root/Downloads"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Media",
+        "Downloaders"
+      ],
+      "description": "Sleek, self-hosted podcast manager that automatically downloads new episodes, offers a web UI for listening, and provides a GPodder-compatible sync API for mobile apps like AntennaPod. GitHub: [SamTV12345/PodFetch](https://github.com/SamTV12345/PodFetch)",
+      "env": [
+        {
+          "default": "sqlite:///app/db/podcast.db",
+          "label": "DATABASE_URL",
+          "name": "DATABASE_URL"
+        },
+        {
+          "default": "300",
+          "label": "POLLING_INTERVAL",
+          "name": "POLLING_INTERVAL"
+        },
+        {
+          "default": "false",
+          "label": "BASIC_AUTH",
+          "name": "BASIC_AUTH"
+        },
+        {
+          "default": "",
+          "label": "USERNAME",
+          "name": "USERNAME"
+        },
+        {
+          "default": "",
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "default": "false",
+          "label": "GPODDER_INTEGRATION_ENABLED",
+          "name": "GPODDER_INTEGRATION_ENABLED"
+        }
+      ],
+      "image": "samuel19982/podfetch:latest",
+      "logo": "https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/podfetch.png",
+      "name": "podfetch",
+      "note": "To use the GPodder sync API, set BASIC_AUTH=true together with USERNAME and PASSWORD, and set GPODDER_INTEGRATION_ENABLED=true. Documentation: https://samtv12345.github.io/PodFetch/",
+      "platform": "linux",
+      "ports": [
+        "8000:8000/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "PodFetch",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/app/podcasts",
+          "bind": "/portainer/Files/AppData/PodFetch/podcasts"
+        },
+        {
+          "container": "/app/db",
+          "bind": "/portainer/Files/AppData/PodFetch/db"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Media",
+        "Books"
+      ],
+      "description": "A free and open source comics, manga, and digital book server with OPDS support. Source: https://github.com/stumpapp/stump",
+      "env": [
+        {
+          "default": "1000",
+          "label": "PUID",
+          "name": "PUID"
+        },
+        {
+          "default": "1000",
+          "label": "PGID",
+          "name": "PGID"
+        },
+        {
+          "default": "/config",
+          "label": "STUMP_CONFIG_DIR",
+          "name": "STUMP_CONFIG_DIR"
+        }
+      ],
+      "image": "aaronleopold/stump:latest",
+      "logo": "https://avatars.githubusercontent.com/u/114969632",
+      "name": "stump",
+      "platform": "linux",
+      "ports": [
+        "10801:10801/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Stump",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config"
+        },
+        {
+          "container": "/data"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Media",
+        "Tools"
+      ],
+      "description": "Media requests and server management in one app. Household members browse and request movies, shows, books, and music, follow downloads, and get notified when content is ready. Administrators manage Radarr, Sonarr, Chaptarr, Lidarr, and download clients, review approvals, and investigate stuck downloads. AI is optional, and authorized MCP clients can use the same server. GitHub: [windoze95/cantinarr](https://github.com/windoze95/cantinarr)",
+      "env": [
+        {
+          "default": "https://push.cantinarr.com",
+          "description": "Push gateway for the companion iOS and Android apps. The server enrolls itself on first start; clear to disable push, or point it at your own gateway.",
+          "label": "CANTINARR_PUSH_GATEWAY_URL",
+          "name": "CANTINARR_PUSH_GATEWAY_URL"
+        },
+        {
+          "default": "",
+          "description": "Origin your Radarr, Sonarr, and Chaptarr containers POST webhooks back to, for example http://192.168.1.10:8585. Leave blank to use whatever address you browse to. This is not the address people reach Cantinarr at; set that in the app under Settings, External Address. Formerly named CANTINARR_PUBLIC_URL, which existing containers can keep using.",
+          "label": "CANTINARR_ARR_CALLBACK_URL",
+          "name": "CANTINARR_ARR_CALLBACK_URL"
+        }
+      ],
+      "image": "ghcr.io/windoze95/cantinarr:latest",
+      "logo": "https://cantinarr.com/static/symbol-transparent-v1.png",
+      "name": "cantinarr",
+      "note": "Web UI and API on port 8585. Radarr, Sonarr, Chaptarr, download clients, Tautulli, and Plex are all optional and are added from the admin UI after first run. Documentation: https://github.com/windoze95/cantinarr",
+      "platform": "linux",
+      "ports": [
+        "8585:8585/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Cantinarr",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/portainer/Files/AppData/Cantinarr/config",
+          "container": "/config"
+        }
+      ]
+    }
+  ],
+  "version": "3"
+}

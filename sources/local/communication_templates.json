@@ -1,0 +1,140 @@
+{
+  "templates": [
+    {
+      "categories": [
+        "Messaging",
+        "Social"
+      ],
+      "description": "A lightweight federated messaging service. Source: https://github.com/balzack/databag",
+      "env": [
+        {
+          "default": "",
+          "label": "Admin dashboard password",
+          "name": "DATABAG_ADMIN_PASSWORD"
+        }
+      ],
+      "logo": "https://avatars.githubusercontent.com/u/108325695",
+      "name": "databag",
+      "note": "After deploy, open the app, click the settings gear, enter your admin password, set the Federated Host, then use the user icon to create account-registration links.",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/databag.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "title": "Databag",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Notifications",
+        "Messaging"
+      ],
+      "command": "serve --cache-file /var/cache/ntfy/cache.db",
+      "description": "Simple HTTP-based pub-sub notification service. Send push notifications to your phone or desktop via PUT/POST. Source: https://github.com/binwiederhier/ntfy",
+      "env": [
+        {
+          "default": "http://localhost:8080",
+          "label": "Public base URL (e.g. https://ntfy.example.com) \u2014 needed for attachments and links",
+          "name": "NTFY_BASE_URL"
+        },
+        {
+          "default": "UTC",
+          "label": "Timezone (affects scheduled delivery)",
+          "name": "TZ"
+        }
+      ],
+      "image": "binwiederhier/ntfy:latest",
+      "logo": "https://avatars.githubusercontent.com/u/664597",
+      "name": "ntfy",
+      "platform": "linux",
+      "ports": [
+        "8080:80/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "ntfy",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/var/cache/ntfy"
+        },
+        {
+          "container": "/etc/ntfy"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Social",
+        "Fediverse"
+      ],
+      "description": "An ActivityPub social network server written in Go, providing a lightweight alternative to Mastodon. Source: https://codeberg.org/superseriousbusiness/gotosocial",
+      "env": [
+        {
+          "default": "localhost",
+          "label": "Your public domain (cannot be changed later)",
+          "name": "GTS_HOST"
+        },
+        {
+          "default": "sqlite",
+          "label": "Database type",
+          "name": "GTS_DB_TYPE"
+        },
+        {
+          "default": "/gotosocial/storage/sqlite.db",
+          "label": "SQLite database file (kept on the storage volume)",
+          "name": "GTS_DB_ADDRESS"
+        },
+        {
+          "default": "false",
+          "label": "Use built-in Let's Encrypt (set false when behind a reverse proxy)",
+          "name": "GTS_LETSENCRYPT_ENABLED"
+        }
+      ],
+      "image": "superseriousbusiness/gotosocial:latest",
+      "logo": "https://avatars.githubusercontent.com/u/79751420",
+      "name": "gotosocial",
+      "note": "Set GTS_HOST to your public domain before first run (it cannot be changed afterwards). GoToSocial serves HTTP on :8080 \u2014 front it with an HTTPS reverse proxy. After the stack is up, create your first user with the CLI: docker exec into the container and run 'gotosocial admin account create' then 'gotosocial admin account promote'. See https://docs.gotosocial.org",
+      "platform": "linux",
+      "ports": [
+        "8080:8080/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "GoToSocial",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/gotosocial/storage"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Email",
+        "Marketing"
+      ],
+      "description": "High performance self-hosted newsletter and mailing list manager with a modern dashboard. Source: https://github.com/knadh/listmonk",
+      "env": [
+        {
+          "default": "admin",
+          "label": "Super-admin username (set on first install)",
+          "name": "LISTMONK_ADMIN_USER"
+        },
+        {
+          "default": "",
+          "label": "Super-admin password (min 8 chars; blank = first-run setup screen)",
+          "name": "LISTMONK_ADMIN_PASSWORD"
+        }
+      ],
+      "logo": "https://avatars.githubusercontent.com/u/17838164",
+      "name": "listmonk",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/listmonk.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "title": "Listmonk",
+      "type": 3
+    }
+  ],
+  "version": "3"
+}

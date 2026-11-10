@@ -1,0 +1,41 @@
+{
+  "version": "3",
+  "templates": [
+    {
+      "categories": [
+        "Dashboard",
+        "Tools"
+      ],
+      "description": "The ultimate personal dashboard, keep all your self-hosted services and websites organized. Includes live status monitoring, widgets, icons, themes, 30+ languages, instant search, multi-page support, UI editor, authentication and more. GitHub: [lissy93/dashy](https://github.com/lissy93/dashy)",
+      "env": [
+        {
+          "default": "production",
+          "label": "Node environment",
+          "name": "NODE_ENV",
+          "preset": true
+        },
+        {
+          "default": "UTC",
+          "label": "Timezone, e.g. Europe/London (used for logs and time widgets)",
+          "name": "TZ"
+        }
+      ],
+      "image": "lissy93/dashy:latest",
+      "logo": "https://raw.githubusercontent.com/Lissy93/dashy/master/docs/assets/logo.png",
+      "name": "dashy",
+      "note": "Dashy's main config lives in `/app/user-data/conf.yml`. You can put additional configs, styles, icons, CSS, and other resources in this `user-data` directory too. See the docs at https://dashy.to/docs for more info.",
+      "platform": "linux",
+      "ports": [
+        "4000:8080/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Dashy",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/app/user-data"
+        }
+      ]
+    }
+  ]
+}

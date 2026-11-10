@@ -1,0 +1,195 @@
+{
+  "templates": [
+    {
+      "categories": [
+        "Tools",
+        "Productivity"
+      ],
+      "description": "Collection of handy online tools for developers, with great UX. Source: https://github.com/CorentinTh/it-tools",
+      "env": [],
+      "image": "corentinth/it-tools:latest",
+      "logo": "https://avatars.githubusercontent.com/u/25065347",
+      "name": "it-tools",
+      "platform": "linux",
+      "ports": [
+        "8080:80/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "IT-Tools",
+      "type": 1
+    },
+    {
+      "categories": [
+        "Development",
+        "Version Control"
+      ],
+      "description": "A self-hosted lightweight software forge, providing Git hosting, code review, issue tracking, and CI/CD. Source: https://codeberg.org/forgejo/forgejo",
+      "env": [
+        {
+          "default": "1000",
+          "label": "USER_UID",
+          "name": "USER_UID"
+        },
+        {
+          "default": "1000",
+          "label": "USER_GID",
+          "name": "USER_GID"
+        }
+      ],
+      "image": "codeberg.org/forgejo/forgejo:15",
+      "logo": "https://avatars.githubusercontent.com/u/118922216",
+      "name": "forgejo",
+      "platform": "linux",
+      "ports": [
+        "3000:3000/tcp",
+        "222:22/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Forgejo",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "CI/CD",
+        "Development"
+      ],
+      "description": "A simple yet powerful CI/CD engine with great extensibility, built for containers. Source: https://github.com/woodpecker-ci/woodpecker",
+      "env": [
+        {
+          "default": "http://localhost:8000",
+          "label": "Server public URL",
+          "name": "WOODPECKER_HOST"
+        },
+        {
+          "default": "changeme-generate-a-long-random-secret",
+          "label": "Agent secret (shared random string)",
+          "name": "WOODPECKER_AGENT_SECRET"
+        },
+        {
+          "label": "GitHub OAuth Client ID",
+          "name": "WOODPECKER_GITHUB_CLIENT"
+        },
+        {
+          "label": "GitHub OAuth Client Secret",
+          "name": "WOODPECKER_GITHUB_SECRET"
+        }
+      ],
+      "logo": "https://avatars.githubusercontent.com/u/84780935",
+      "name": "woodpecker-ci",
+      "note": "Woodpecker requires a forge and will not start until one is configured. Register a GitHub OAuth app (Authorization callback URL: <your WOODPECKER_HOST>/authorize) and paste the Client ID and Secret above. To use Gitea, Forgejo, GitLab or Bitbucket instead, edit the stack's WOODPECKER_* forge variables. See https://woodpecker-ci.org/docs",
+      "platform": "linux",
+      "repository": {
+        "stackfile": "sources/stacks/woodpecker-ci.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "title": "Woodpecker CI",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Database",
+        "Tools"
+      ],
+      "description": "Cloud database manager providing a web interface for working with various databases. Source: https://github.com/dbeaver/cloudbeaver",
+      "env": [],
+      "image": "dbeaver/cloudbeaver:latest",
+      "logo": "https://avatars.githubusercontent.com/u/34743864",
+      "name": "cloudbeaver",
+      "platform": "linux",
+      "ports": [
+        "8978:8978/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "CloudBeaver",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/opt/cloudbeaver/workspace"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Automation",
+        "Tools"
+      ],
+      "description": "A powerful, self-contained DAG-based job scheduler with a web UI, YAML definitions, and no dependencies. Source: https://github.com/dagucloud/dagu",
+      "env": [],
+      "image": "ghcr.io/dagucloud/dagu:latest",
+      "logo": "https://avatars.githubusercontent.com/u/131097250",
+      "name": "dagu",
+      "note": "Open port 8080 and create the first admin account. See https://docs.dagu.sh",
+      "platform": "linux",
+      "ports": [
+        "8080:8080/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Dagu",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/var/lib/dagu"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Tools",
+        "Documents"
+      ],
+      "description": "Docker-powered stateless API for PDF files: conversions, generation, merging, and more. Source: https://github.com/gotenberg/gotenberg",
+      "env": [],
+      "image": "gotenberg/gotenberg:8",
+      "logo": "https://avatars.githubusercontent.com/u/66820499",
+      "name": "gotenberg",
+      "platform": "linux",
+      "ports": [
+        "3000:3000/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Gotenberg",
+      "type": 1
+    },
+    {
+      "categories": [
+        "Database"
+      ],
+      "description": "Open-source search and analytics engine",
+      "env": [
+        {
+          "default": "single-node",
+          "name": "discovery.type",
+          "preset": true
+        },
+        {
+          "default": "false",
+          "label": "Disable X-Pack security",
+          "name": "xpack.security.enabled"
+        }
+      ],
+      "image": "elasticsearch:9.5.3",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/elasticsearch.png",
+      "name": "elasticsearch",
+      "note": "Elasticsearch publishes no rolling <code>latest</code> tag, so this template pins a specific version. <code>discovery.type</code> and <code>xpack.security.enabled</code> are set so a single-node container starts and stays reachable without TLS setup.",
+      "platform": "linux",
+      "ports": [
+        "9200/tcp",
+        "9300/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Elasticsearch",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/usr/share/elasticsearch/data"
+        }
+      ]
+    }
+  ],
+  "version": "3"
+}
